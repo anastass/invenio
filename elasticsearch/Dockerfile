@@ -26,4 +26,5 @@
 FROM elasticsearch:2
 COPY scripts/provision-elasticsearch.sh /tmp/
 # Install Elasticsarch plugins:
+RUN chmod +x /tmp/provision-elasticsearch.sh
 RUN /tmp/provision-elasticsearch.sh

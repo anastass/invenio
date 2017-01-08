@@ -28,6 +28,7 @@ FROM python:2.7-slim
 COPY scripts/provision-web.sh /tmp/
 
 # Install Invenio web node pre-requisites:
+RUN chmod +x /tmp/provision-web.sh
 RUN /tmp/provision-web.sh
 
 # Add Invenio sources to `code` and work there:
@@ -56,6 +57,7 @@ ENV INVENIO_RABBITMQ_HOST=rabbitmq
 ENV INVENIO_WORKER_HOST=127.0.0.1
 
 # Create Invenio instance:
+RUN chmod +x /code/scripts/create-instance.sh
 RUN /code/scripts/create-instance.sh
 
 # Make given VENV default:
